@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Inventory & Risk Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-block">
+            <div class="logo-circle">DS</div>
+            <div class="logo-text">
+                <h1>DeadStock AI</h1>
+                <p>Risk Monitoring Console</p>
+            </div>
+        </div>
+
+        <nav class="nav-section">
+            <p class="nav-title">Navigation</p>
+            <ul>
+                <li><a href="dashboard.html" class="nav-item">Dashboard</a></li>
+                <li><a href="products.html" class="nav-item nav-item-active">Products</a></li>
+                <li><a href="alerts.html" class="nav-item">Alerts</a></li>
+                <li><a href="reports.html" class="nav-item">Reports</a></li>
+            </ul>
+        </nav>
+
+        <div class="filter-section">
+            <p class="nav-title">Filters</p>
+
+            <label class="filter-label">Risk Level</label>
+            <select class="filter-input">
+                <option>All</option>
+                <option>High (70–100)</option>
+                <option>Medium (40–69)</option>
+                <option>Low (0–39)</option>
+            </select>
+
+            <label class="filter-label">Category</label>
+            <select class="filter-input">
+                <option>All Categories</option>
+                <option>Fashion</option>
+                <option>Electronics</option>
+                <option>Home & Living</option>
+                <option>Sports</option>
+                <option>Beauty</option>
+            </select>
+
+            <label class="filter-label">Warehouse</label>
+            <select class="filter-input">
+                <option>All Locations</option>
+                <option>Istanbul – Central</option>
+                <option>Ankara – Regional</option>
+                <option>Izmir – Outlet</option>
+            </select>
+
+            <button class="btn-primary full-width">Apply Filters</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Top bar -->
+        <header class="top-bar">
+            <div>
+                <h2>Product Inventory &amp; Risk Explorer</h2>
+                <p class="subtitle">
+                    Drill down into SKU-level dead stock risk and product details
+                </p>
+            </div>
+            <div class="top-bar-right">
+                <input class="search-input" placeholder="Search SKU, product name...">
+                <div class="user-badge">
+                    <div class="user-avatar">YY</div>
+                    <span class="user-name">Inventory Manager</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Filters row inside main -->
+        <section class="panel">
+            <div class="panel-header panel-header-row">
+                <div>
+                    <h3>Product Filters</h3>
+                    <span class="panel-subtitle">
+                        Combine AI risk filters with business attributes to find problematic SKUs.
+                    </span>
+                </div>
+                <div class="chip-row">
+                    <button class="chip chip-active">All</button>
+                    <button class="chip">High Risk</button>
+                    <button class="chip">Medium Risk</button>
+                    <button class="chip">Low Risk</button>
+                    <button class="chip">Stock age &gt; 180 days</button>
+                </div>
+            </div>
+
+            <div class="quick-filter-row">
+                <div class="quick-filter-group">
+                    <label class="filter-label">Sort by</label>
+                    <select class="filter-input">
+                        <option>Risk Score (Desc)</option>
+                        <option>Stock Age (Desc)</option>
+                        <option>Stock Quantity (Desc)</option>
+                        <option>Sales Velocity (Asc)</option>
+                    </select>
+                </div>
+                <div class="quick-filter-group">
+                    <label class="filter-label">Minimum risk score</label>
+                    <input class="filter-input" type="number" value="0" min="0" max="100" placeholder="0">
+                </div>
+                <div class="quick-filter-group">
+                    <label class="filter-label">Max stock age (days)</label>
+                    <input class="filter-input" type="number" value="" min="0" placeholder="No limit">
+                </div>
+                <button id="update-btn" class="btn-primary">Update List</button>
+            </div>
+        </section>
+
+        <!-- Products table + side detail preview -->
+        <section class="product-layout">
+            <div class="panel product-panel">
+                <div class="panel-header">
+                    <h3>SKU List</h3>
+                    <span class="panel-subtitle">
+                        Click a row to view AI explanation and recommended actions.
+                    </span>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="product-table">
+                        <thead>
+                        <tr>
+                            <th>SKU</th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Warehouse</th>
+                            <th>Stock</th>
+                            <th>Sales Velocity</th>
+                            <th>Stock Age</th>
+                            <th>Risk Score</th>
+                        </tr>
+                        </thead>
+                        <tbody id="product-table-body">
+                        <tr>
+                            <td colspan="8" style="text-align: center; padding: 2rem; color: #9ca3af;">
+                                Loading products...
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Detail panel -->
+            <aside class="panel detail-panel">
+                <div class="panel-header">
+                    <h3>Selected SKU Details</h3>
+                    <span class="panel-subtitle">
+                        Click on a product row to view details.
+                    </span>
+                </div>
+
+                <div class="detail-block">
+                    <p class="detail-value" style="color: #9ca3af; text-align: center; padding: 2rem;">
+                        Select a product to view AI risk analysis and recommendations.
+                    </p>
+                </div>
+            </aside>
+        </section>
+    </main>
+</div>
+<script src="products.js"></script>
+</body>
+</html>

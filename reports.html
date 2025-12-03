@@ -1,0 +1,142 @@
+<!-- reports.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics & Trend Reports</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+<div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-block">
+            <div class="logo-circle">DS</div>
+            <div class="logo-text">
+                <h1>DeadStock AI</h1>
+                <p>Risk Monitoring Console</p>
+            </div>
+        </div>
+
+        <nav class="nav-section">
+            <p class="nav-title">Navigation</p>
+            <ul>
+                <li><a href="dashboard.html" class="nav-item">Dashboard</a></li>
+                <li><a href="products.html" class="nav-item">Products</a></li>
+                <li><a href="alerts.html" class="nav-item">Alerts</a></li>
+                <li><a href="reports.html" class="nav-item nav-item-active">Reports</a></li>
+            </ul>
+        </nav>
+
+        <div class="filter-section">
+            <p class="nav-title">Filters</p>
+
+            <label class="filter-label">Reporting Range</label>
+            <select class="filter-input">
+                <option>Last 90 days</option>
+                <option>Last 6 months</option>
+                <option>Last 12 months</option>
+            </select>
+
+            <label class="filter-label">Aggregation Level</label>
+            <select class="filter-input">
+                <option>Category</option>
+                <option>Warehouse</option>
+                <option>Brand</option>
+            </select>
+
+            <button class="btn-primary full-width">Apply</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Top bar -->
+        <header class="top-bar">
+            <div>
+                <h2>Analytics &amp; Trend Reports</h2>
+                <p class="subtitle">
+                    Track dead stock evolution, recovered value, and category performance over time
+                </p>
+            </div>
+            <div class="top-bar-right">
+                <input class="search-input" placeholder="Search report, category...">
+                <div class="user-badge">
+                    <div class="user-avatar">YY</div>
+                    <span class="user-name">Inventory Manager</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Report summary tiles -->
+        <section class="tile-grid">
+            <article class="tile-card">
+                <p class="tile-label">Dead stock volume (current)</p>
+                <p class="tile-value" id="kpi-deadstock-current">17.4%</p>
+                <p class="tile-footnote">Down from prior period</p>
+            </article>
+            <article class="tile-card tile-success">
+                <p class="tile-label">Value recovered via actions</p>
+                <p class="tile-value">₺ 540K</p>
+                <p class="tile-footnote">Based on AI recommended actions</p>
+            </article>
+            <article class="tile-card tile-warning">
+                <p class="tile-label">High-risk categories</p>
+                <p class="tile-value">3</p>
+                <p class="tile-footnote">Need deeper analysis</p>
+            </article>
+            <article class="tile-card">
+                <p class="tile-label">Avg. resolution time</p>
+                <p class="tile-value">4.2 days</p>
+                <p class="tile-footnote">From alert to action completion</p>
+            </article>
+        </section>
+
+        <!-- Charts grid -->
+        <section class="report-grid">
+            <div class="panel chart-panel">
+                <div class="panel-header">
+                    <h3>Dead Stock % Over Time</h3>
+                    <span class="panel-subtitle">
+                        Line chart showing total dead stock percentage trend.
+                    </span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chart-deadstock-trend"></canvas>
+                </div>
+            </div>
+
+            <div class="panel chart-panel">
+                <div class="panel-header">
+                    <h3>Dead Stock Risk by Category</h3>
+                    <span class="panel-subtitle">
+                        Bar chart comparing average risk score by category.
+                    </span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chart-risk-by-category"></canvas>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h3>Report Export &amp; Sharing</h3>
+                    <span class="panel-subtitle">
+                        How business users might export and share insights.
+                    </span>
+                </div>
+                <ul class="detail-list">
+                    <li>One-click export to PDF and Excel for each chart and table.</li>
+                    <li>Scheduled weekly email with key metrics and AI commentary.</li>
+                    <li>Role-based access: planners see SKU-level details, executives see summaries.</li>
+                    <li>Integration with BI tools (e.g., Power BI, Looker, Tableau) via API.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>

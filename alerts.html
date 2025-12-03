@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alerts & Recommendations Center</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-block">
+            <div class="logo-circle">DS</div>
+            <div class="logo-text">
+                <h1>DeadStock AI</h1>
+                <p>Risk Monitoring Console</p>
+            </div>
+        </div>
+
+        <nav class="nav-section">
+            <p class="nav-title">Navigation</p>
+            <ul>
+                <li><a href="dashboard.html" class="nav-item">Dashboard</a></li>
+                <li><a href="products.html" class="nav-item">Products</a></li>
+                <li><a href="alerts.html" class="nav-item nav-item-active">Alerts</a></li>
+                <li><a href="reports.html" class="nav-item">Reports</a></li>
+            </ul>
+        </nav>
+
+        <div class="filter-section">
+            <p class="nav-title">Filters</p>
+
+            <label class="filter-label">Alert Type</label>
+            <select class="filter-input">
+                <option>All</option>
+                <option>High-Risk SKU</option>
+                <option>Category Level</option>
+                <option>Warehouse Capacity</option>
+            </select>
+
+            <label class="filter-label">Status</label>
+            <select class="filter-input">
+                <option>Open</option>
+                <option>In Progress</option>
+                <option>Resolved</option>
+            </select>
+
+            <button class="btn-primary full-width">Apply Filters</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Top bar -->
+        <header class="top-bar">
+            <div>
+                <h2>Alerts &amp; Recommendations Center</h2>
+                <p class="subtitle">
+                    AI-generated alerts grouped by impact, urgency, and status
+                </p>
+            </div>
+            <div class="top-bar-right">
+                <input class="search-input" placeholder="Search alert, SKU, category...">
+                <div class="user-badge">
+                    <div class="user-avatar">YY</div>
+                    <span class="user-name">Inventory Manager</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Summary tiles -->
+        <section class="tile-grid">
+            <article class="tile-card tile-critical">
+                <p class="tile-label">Critical alerts</p>
+                <p class="tile-value">18</p>
+                <p class="tile-footnote">Immediate action recommended</p>
+            </article>
+            <article class="tile-card tile-warning">
+                <p class="tile-label">Warning alerts</p>
+                <p class="tile-value">47</p>
+                <p class="tile-footnote">Investigate within 7 days</p>
+            </article>
+            <article class="tile-card tile-info">
+                <p class="tile-label">Info / Optimization</p>
+                <p class="tile-value">23</p>
+                <p class="tile-footnote">Low urgency improvements</p>
+            </article>
+            <article class="tile-card">
+                <p class="tile-label">Alerts resolved this week</p>
+                <p class="tile-value">36</p>
+                <p class="tile-footnote">Team performance indicator</p>
+            </article>
+        </section>
+
+        <!-- Alerts list + detail -->
+        <section class="alert-layout">
+            <div class="panel alert-list-panel">
+                <div class="panel-header">
+                    <h3>Open Alerts</h3>
+                    <span class="panel-subtitle">
+                        AI-detected situations likely to create dead stock if ignored.
+                    </span>
+                </div>
+
+                <div class="alert-list">
+                    <div class="alert-card alert-critical">
+                        <div class="alert-header-row">
+                            <span class="alert-pill alert-pill-critical">Critical</span>
+                            <span class="alert-meta-text">High-risk hoodies in Istanbul</span>
+                        </div>
+                        <p class="alert-title">
+                            430 units of Oversized Hoodie – Black (M) at risk of becoming dead stock in 30 days
+                        </p>
+                        <p class="alert-meta">
+                            SKU: F-10293 · Warehouse: Istanbul – Central · Risk Score: 88
+                        </p>
+                        <p class="alert-recommendation">
+                            AI recommends bundling with joggers, 20% markdown, and placement in “Last Chance” section.
+                        </p>
+                    </div>
+
+                    <div class="alert-card alert-warning">
+                        <div class="alert-header-row">
+                            <span class="alert-pill alert-pill-warning">Warning</span>
+                            <span class="alert-meta-text">Category: Electronics</span>
+                        </div>
+                        <p class="alert-title">
+                            Slow-moving Bluetooth speakers across Ankara warehouse
+                        </p>
+                        <p class="alert-meta">
+                            78 units · avg. Risk Score: 58 · Stock age: 95 days
+                        </p>
+                        <p class="alert-recommendation">
+                            AI suggests a 10% promo plus homepage banner for 1 week.
+                        </p>
+                    </div>
+
+                    <div class="alert-card alert-critical">
+                        <div class="alert-header-row">
+                            <span class="alert-pill alert-pill-critical">Critical</span>
+                            <span class="alert-meta-text">Warehouse capacity</span>
+                        </div>
+                        <p class="alert-title">
+                            Istanbul – Central warehouse reaching 90% capacity with high-risk SKUs
+                        </p>
+                        <p class="alert-meta">
+                            5 high-risk categories · Est. locked value: ₺ 640K
+                        </p>
+                        <p class="alert-recommendation">
+                            AI recommends transferring selected items to Izmir Outlet and scheduling clearance events.
+                        </p>
+                    </div>
+
+                    <div class="alert-card alert-info">
+                        <div class="alert-header-row">
+                            <span class="alert-pill alert-pill-info">Info</span>
+                            <span class="alert-meta-text">Category optimization</span>
+                        </div>
+                        <p class="alert-title">
+                            Consider reducing assortment depth for seasonal pillows
+                        </p>
+                        <p class="alert-meta">
+                            3 related SKUs · moderate risk · repeated pattern last year
+                        </p>
+                        <p class="alert-recommendation">
+                            AI suggests smaller re-order quantities next season.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side: example workflow actions -->
+            <aside class="panel alert-detail-panel">
+                <div class="panel-header">
+                    <h3>Alert Workflow Example</h3>
+                    <span class="panel-subtitle">
+                        How planners convert AI alerts into concrete actions.
+                    </span>
+                </div>
+
+                <ol class="workflow-list">
+                    <li>
+                        <span class="workflow-step-title">Review AI Explanation</span>
+                        <p class="workflow-step-text">
+                            Planner inspects the main drivers (stock age, velocity, promotions, views)
+                            and confirms that the alert makes sense.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="workflow-step-title">Choose an Action Template</span>
+                        <p class="workflow-step-text">
+                            E.g., “Bundle &amp; markdown”, “Transfer to outlet”, “Digital promo boost”,
+                            or “Do nothing for now”.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="workflow-step-title">Assign Owner &amp; Due Date</span>
+                        <p class="workflow-step-text">
+                            The system assigns the alert to a specific planner or category manager
+                            and tracks completion status.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="workflow-step-title">Track Impact</span>
+                        <p class="workflow-step-text">
+                            After the action, the AI updates risk scores and calculates recovered value,
+                            feeding into the Reports page.
+                        </p>
+                    </li>
+                </ol>
+            </aside>
+        </section>
+    </main>
+</div>
+</body>
+</html>

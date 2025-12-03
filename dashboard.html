@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dead Stock Risk Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-block">
+            <div class="logo-circle">DS</div>
+            <div class="logo-text">
+                <h1>DeadStock AI</h1>
+                <p>Risk Monitoring Console</p>
+            </div>
+        </div>
+
+        <nav class="nav-section">
+            <p class="nav-title">Navigation</p>
+            <ul>
+                <li><a href="dashboard.html" class="nav-item nav-item-active">Dashboard</a></li>
+                <li><a href="products.html" class="nav-item">Products</a></li>
+                <li><a href="alerts.html" class="nav-item">Alerts</a></li>
+                <li><a href="reports.html" class="nav-item">Reports</a></li>
+            </ul>
+        </nav>
+
+        <div class="filter-section">
+            <p class="nav-title">Filters</p>
+
+            <label class="filter-label">Risk Level</label>
+            <select class="filter-input">
+                <option>All</option>
+                <option>High (70–100)</option>
+                <option>Medium (40–69)</option>
+                <option>Low (0–39)</option>
+            </select>
+
+            <label class="filter-label">Category</label>
+            <select class="filter-input">
+                <option>All Categories</option>
+                <option>Fashion</option>
+                <option>Electronics</option>
+                <option>Home & Living</option>
+            </select>
+
+            <label class="filter-label">Warehouse</label>
+            <select class="filter-input">
+                <option>All Locations</option>
+                <option>Istanbul – Central</option>
+                <option>Ankara – Regional</option>
+                <option>Izmir – Outlet</option>
+            </select>
+
+            <label class="filter-label">Time Window</label>
+            <select class="filter-input">
+                <option>Last 30 days</option>
+                <option>Last 90 days</option>
+                <option>Last 12 months</option>
+            </select>
+
+            <button class="btn-primary full-width">Apply Filters</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Top bar -->
+        <header class="top-bar">
+            <div>
+                <h2>Dead Stock Risk Dashboard</h2>
+                <p class="subtitle">
+                    AI-based early warning system for unsold inventory
+                </p>
+            </div>
+            <div class="top-bar-right">
+                <input class="search-input" placeholder="Search SKU, product name...">
+                <div class="user-badge">
+                    <div class="user-avatar">YY</div>
+                    <span class="user-name">Inventory Manager</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- KPI cards -->
+        <section class="kpi-row">
+            <article class="kpi-card">
+                <p class="kpi-label">Total SKUs Monitored</p>
+                <p class="kpi-value">8,420</p>
+                <p class="kpi-footnote">Across all warehouses</p>
+            </article>
+
+            <article class="kpi-card">
+                <p class="kpi-label">High-Risk SKUs (≥ 70)</p>
+                <p class="kpi-value kpi-warning">612</p>
+                <p class="kpi-footnote">Dead Stock Risk Score</p>
+            </article>
+
+            <article class="kpi-card">
+                <p class="kpi-label">Estimated Locked Value</p>
+                <p class="kpi-value">₺ 1.87M</p>
+                <p class="kpi-footnote">Based on current inventory cost</p>
+            </article>
+
+            <article class="kpi-card">
+                <p class="kpi-label">Dead Stock Volume</p>
+                <p class="kpi-value">17.4%</p>
+                <p class="kpi-footnote">Target: under 10%</p>
+            </article>
+        </section>
+
+        <!-- Middle row: risk distribution + actions -->
+        <section class="middle-row">
+            <div class="panel">
+                <div class="panel-header">
+                    <h3>Risk Distribution</h3>
+                    <span class="panel-subtitle">Share of SKUs by risk score</span>
+                </div>
+                <div class="bar-wrapper">
+                    <div class="bar-label-row">
+                        <span>Low</span>
+                        <span>Medium</span>
+                        <span>High</span>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar bar-low" title="Low risk"></div>
+                        <div class="bar bar-medium" title="Medium risk"></div>
+                        <div class="bar bar-high" title="High risk"></div>
+                    </div>
+                    <div class="bar-legend-row">
+                        <span>0–39</span>
+                        <span>40–69</span>
+                        <span>70–100</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h3>Recommended Actions (AI)</h3>
+                    <span class="panel-subtitle">Top strategies to reduce dead stock</span>
+                </div>
+                <ul class="action-list">
+                    <li>
+                        <div class="action-title">Bundle slow-moving fashion SKUs</div>
+                        <div class="action-meta">
+                            120 SKUs · avg. Risk Score: 81 · Est. recovery: ₺ 320K
+                        </div>
+                    </li>
+                    <li>
+                        <div class="action-title">Gradual markdown on aged electronics</div>
+                        <div class="action-meta">
+                            74 SKUs · stock age &gt; 180 days · Est. recovery: ₺ 210K
+                        </div>
+                    </li>
+                    <li>
+                        <div class="action-title">Transfer high-risk stock to outlet warehouse</div>
+                        <div class="action-meta">
+                            36 SKUs · Istanbul → Izmir Outlet · Higher sell-through probability
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Product table (overview) -->
+        <section class="panel">
+            <div class="panel-header">
+                <h3>SKU-Level Dead Stock Risk</h3>
+                <span class="panel-subtitle">
+                    Each product is scored between 0 and 100 based on demand, stock age, and engagement.
+                </span>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="product-table">
+                    <thead>
+                    <tr>
+                        <th>SKU</th>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Warehouse</th>
+                        <th>Stock</th>
+                        <th>Sales Velocity</th>
+                        <th>Stock Age</th>
+                        <th>Risk Score</th>
+                        <th>Recommended Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="risk-high">
+                        <td>F-10293</td>
+                        <td>Oversized Hoodie – Black (M)</td>
+                        <td>Fashion</td>
+                        <td>Istanbul – Central</td>
+                        <td>430</td>
+                        <td>0.3 / day</td>
+                        <td>210 days</td>
+                        <td><span class="risk-badge risk-badge-high">88</span></td>
+                        <td>Bundle with joggers + 20% markdown</td>
+                    </tr>
+                    <tr class="risk-high">
+                        <td>E-87411</td>
+                        <td>Wireless Earbuds v2</td>
+                        <td>Electronics</td>
+                        <td>Ankara – Regional</td>
+                        <td>155</td>
+                        <td>0.4 / day</td>
+                        <td>190 days</td>
+                        <td><span class="risk-badge risk-badge-high">79</span></td>
+                        <td>Flash sale + homepage promotion</td>
+                    </tr>
+                    <tr class="risk-medium">
+                        <td>H-44210</td>
+                        <td>Decorative Throw Pillow</td>
+                        <td>Home &amp; Living</td>
+                        <td>Izmir – Outlet</td>
+                        <td>96</td>
+                        <td>1.1 / day</td>
+                        <td>120 days</td>
+                        <td><span class="risk-badge risk-badge-medium">62</span></td>
+                        <td>Limited-time 10% discount</td>
+                    </tr>
+                    <tr class="risk-low">
+                        <td>F-20441</td>
+                        <td>Basic T-Shirt – White (L)</td>
+                        <td>Fashion</td>
+                        <td>Istanbul – Central</td>
+                        <td>220</td>
+                        <td>4.5 / day</td>
+                        <td>35 days</td>
+                        <td><span class="risk-badge risk-badge-low">23</span></td>
+                        <td>No action – healthy stock</td>
+                    </tr>
+                    <tr class="risk-medium">
+                        <td>E-90210</td>
+                        <td>Bluetooth Speaker Mini</td>
+                        <td>Electronics</td>
+                        <td>Ankara – Regional</td>
+                        <td>78</td>
+                        <td>0.9 / day</td>
+                        <td>95 days</td>
+                        <td><span class="risk-badge risk-badge-medium">58</span></td>
+                        <td>Increase ad budget for 2 weeks</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>
